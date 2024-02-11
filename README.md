@@ -1,4 +1,4 @@
-# **uTubeDownloader**
+# **TubeDownloader**
 A simple way of **downloading** Videos and Playlists from **YouTube**.
 ## Introduction
 Sometimes, downloading videos from YouTube can be frustrating because most free programs have limitations.
