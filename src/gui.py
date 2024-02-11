@@ -25,7 +25,7 @@ class GUI:
     
     def load(self):
 
-        self.label = CTkLabel(self.root, text="uTube Downloader", font=("Arial", 28)).pack(pady=5)
+        self.label = CTkLabel(self.root, text="Tube Downloader", font=("Arial", 28)).pack(pady=5)
 
         self.frame = CTkFrame(self.root, height=512, width=512)
 
