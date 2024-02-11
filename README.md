@@ -2,7 +2,7 @@
 A simple way of **downloading** Videos and Playlists from **YouTube**.
 ## Introduction
 Sometimes, downloading videos from YouTube can be frustrating because most free programs have limitations.
-uTube Downloader is a **free** and **open-source** program that allows users to easily download videos and playlists without worrying about limitations.
+Tube Downloader is a **free** and **open-source** program that allows users to easily download videos and playlists without worrying about limitations.
 
 For now, the program only has two file types, **MP4** and **MP3**. I'll make sure to add more later.
 ## Installation
