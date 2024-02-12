@@ -40,7 +40,7 @@ class GUI:
         CTkButton(self.frame, text="Download", width=20, command=self.app.download).grid(column=0, row=1, pady=20, sticky="e", padx=20)
 
         CTkLabel(self.frame, text="Download As Type:", font=("Arial", 20)).grid(column=0, row=2, padx=20, sticky='w')
-        self.download_type = CTkComboBox(self.frame, values=['mp4','mp3'], state='readonly')
+        self.download_type = CTkComboBox(self.frame, values=['mp4','mp3', 'wav'], state='readonly')
         self.download_type.set('mp4')
         self.download_type.grid(column=0, row=2, sticky='e', padx=20)
 
