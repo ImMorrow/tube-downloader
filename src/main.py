@@ -47,23 +47,14 @@ class App:
         # get the download type
         _type = self.GUI.download_type.get()
 
-        # check if the link is for a playlist
+        only_audio = self.GUI.download_audio.get()
+
+        # check if the link is for a list
         is_playlist = 'list' in url
 
-        # check download type
         # download in a new thread
-        if _type == 'mp4':
-            if not is_playlist:
-                _thread.start_new_thread(download_mp4, (self, path, url))
-            else:
-                _thread.start_new_thread(download_mp4_playlist, (self, path, url))
-        elif _type == 'mp3':
-            if not is_playlist:
-                _thread.start_new_thread(download_mp3, (self, path, url))
-            else:
-                _thread.start_new_thread(download_mp3_playlist, (self, path, url))
-        else:
-            return
+        if is_playlist: _thread.start_new_thread(download_playlist, (self, path, url, _type, only_audio))
+        else: _thread.start_new_thread(download, (self, path, url, _type, only_audio))
 
     def on_close(self):
         # destroy window when closed

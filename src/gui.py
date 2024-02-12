@@ -37,19 +37,22 @@ class GUI:
         self.link.grid(column=0, row=1, ipadx=100, padx=20, sticky='w')
 
 
+        CTkButton(self.frame, text="Download", width=20, command=self.app.download).grid(column=0, row=1, pady=20, sticky="e", padx=20)
 
         CTkLabel(self.frame, text="Download As Type:", font=("Arial", 20)).grid(column=0, row=2, padx=20, sticky='w')
         self.download_type = CTkComboBox(self.frame, values=['mp4','mp3'], state='readonly')
         self.download_type.set('mp4')
         self.download_type.grid(column=0, row=2, sticky='e', padx=20)
 
-        CTkButton(self.frame, text="Download", width=20, command=self.app.download).grid(column=0, row=1, pady=20, sticky="e", padx=20)
+        self.download_audio = CTkCheckBox(self.frame, text="Audio Only", onvalue=True, offvalue=False)
+        self.download_audio.grid(column=0, row=3, padx=20, sticky='w')
 
-        self.log = CTkTextbox(self.frame, width=430, state='disabled')
 
-        self.log.grid(column=0, row=3, padx=20, pady=15, sticky='nw')
+        self.log = CTkTextbox(self.frame, width=430, height=160, state='disabled')
 
-        CTkButton(self.frame, text='clear', command=self.app.clear).grid(column=0, row=4, sticky='s')
+        self.log.grid(column=0, row=4, padx=20, pady=15, sticky='nw')
+
+        CTkButton(self.frame, text='clear', command=self.app.clear).grid(column=0, row=5, sticky='s')
 
         self.frame.pack(fill='both', padx=20, pady=20)
 
