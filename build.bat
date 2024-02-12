@@ -1,0 +1,1 @@
+pyinstaller --onefile -n TubeDownloader --icon play-button.ico --windowed src/main.py
