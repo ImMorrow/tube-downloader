@@ -2,8 +2,6 @@ from customtkinter import *
 from customtkinter import filedialog as fd
 
 
-
-
 class GUI:
     def __init__(self, app):
 

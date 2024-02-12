@@ -18,6 +18,22 @@ def download_playlist(app, path, link, _type, only_audio=False):
             downloaded_file_path = os.path.join(path, f"{str(i)}.{_type}")
             converted_file_path = os.path.join(path, f"{clean_title}.{_type}")
 
+            # check if file already exists
+            if os.path.isfile(converted_file_path):
+                value = app.askyesnocancel("Warning", f"{converted_file_path} already exists, Do you want to replace it?")
+                if value == True: os.remove(converted_file_path)
+                elif value == False:
+                    n = 1
+                    converted_file_path = os.path.join(path, f"{clean_title}({n}).{_type}")
+                    while os.path.isfile(converted_file_path):
+                        n += 1
+                        converted_file_path = os.path.join(path, f"{clean_title}({n}).{_type}")
+                else:
+                    os.remove(downloaded_file_path)
+                    app.debug('stopped download process')
+                    return
+
+
             # convert to acutal mp3 - important if you want tags
             print('converting...')
             app.debug('converting...')
@@ -50,6 +66,21 @@ def download(app, path, link, _type, only_audio=False):
 
         downloaded_file_path = os.path.join(path, f"{str(i)}.{_type}")
         converted_file_path = os.path.join(path, f"{clean_title}.{_type}")
+
+        # check if file already exists
+        if os.path.isfile(converted_file_path):
+            value = app.askyesnocancel("Warning", f"{converted_file_path} already exists, Do you want to replace it?")
+            if value == True: os.remove(converted_file_path)
+            elif value == False:
+                n = 1
+                converted_file_path = os.path.join(path, f"{clean_title}({n}).{_type}")
+                while os.path.isfile(converted_file_path):
+                    n += 1
+                    converted_file_path = os.path.join(path, f"{clean_title}({n}).{_type}")
+            else:
+                os.remove(downloaded_file_path)
+                app.debug('stopped download process')
+                return
 
         # convert to wanted type - important if you want tags to work
         print('converting...')

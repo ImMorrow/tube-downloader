@@ -1,6 +1,7 @@
 from gui import GUI, END
 from downloader import *
 from customtkinter import filedialog as fd
+from tkinter.messagebox import askyesnocancel
 import _thread, sys, tempfile, base64
 from images import ICON
 
@@ -16,6 +17,8 @@ class App:
             icon_file.write(base64.b64decode(ICON))
         # save temp file path
         self.icon_path = ICON_PATH
+
+        self.askyesnocancel = askyesnocancel
 
         # initialize graphics
         self.GUI = GUI(self)
