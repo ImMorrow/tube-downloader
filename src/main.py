@@ -2,26 +2,22 @@ from gui import GUI, END
 from downloader import *
 from customtkinter import filedialog as fd
 from tkinter.messagebox import askyesnocancel
-import _thread, sys, tempfile, base64
-from images import ICON
+import _thread, sys
 
 
 class App:
     def __init__(self):
 
-        ## LOAD ICON ##
-        # create temp file
-        _, ICON_PATH = tempfile.mkstemp()
-        # write icon to temp file
-        with open(ICON_PATH, 'wb') as icon_file:
-            icon_file.write(base64.b64decode(ICON))
-        # save temp file path
-        self.icon_path = ICON_PATH
-
         self.askyesnocancel = askyesnocancel
 
         # initialize graphics
         self.GUI = GUI(self)
+
+    @staticmethod
+    def resource_path(relative_path):
+        if hasattr(sys, '_MEIPASS'):
+            return os.path.join(sys._MEIPASS, relative_path)
+        return os.path.join(os.path.abspath("."), relative_path)
 
     def clear(self):
         # clear log

@@ -10,12 +10,13 @@ class GUI:
         # create root object 'window'
         self.root = CTk()
         # set window properties
-        self.root.title("uTube Downloader")
+        self.root.title("Tube Downloader")
         self.root.geometry("512x512")
         self.root.resizable(False,False)
 
         # change icon
-        self.root.iconbitmap(self.app.icon_path) # hardcoded icon
+        icon_path = self.app.resource_path("./play-button.ico")
+        self.root.iconbitmap(icon_path) # icon
 
         self.root.protocol('WM_DELETE_WINDOW', self.app.on_close)
 

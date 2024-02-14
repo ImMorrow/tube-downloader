@@ -1,1 +1,1 @@
-pyinstaller --onefile -n TubeDownloader --icon play-button.ico --windowed src/main.py
+pyinstaller --onefile -n TubeDownloader --icon play-button.ico --windowed --add-data "ffmpeg/ffmpeg.exe:ffmpeg" --add-data "play-button.ico:." src/main.py

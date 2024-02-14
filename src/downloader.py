@@ -38,7 +38,7 @@ def download_playlist(app, path, link, _type, only_audio=False):
             print('converting...')
             app.debug('converting...')
             #                           "file_to_convert_path"  "output_path" - make sure to specify file type in path -
-            subprocess.run(f'ffmpeg -i "{downloaded_file_path}" "{converted_file_path}"')
+            subprocess.run(f'{app.resource_path("./ffmpeg/ffmpeg.exe")} -i "{downloaded_file_path}" "{converted_file_path}"')
             # removing old file
             os.remove(downloaded_file_path)
             print('successfully downloaded file')
@@ -86,7 +86,7 @@ def download(app, path, link, _type, only_audio=False):
         print('converting...')
         app.debug('converting...')
         #                           "file_to_convert_path"  "output_path" - make sure to specify file type in path -
-        subprocess.run(f'ffmpeg -i "{downloaded_file_path}" "{converted_file_path}"')
+        subprocess.run(f'{app.resource_path("./ffmpeg/ffmpeg.exe")} -i "{downloaded_file_path}" "{converted_file_path}"')
 
         # removing old file
         os.remove(downloaded_file_path)
